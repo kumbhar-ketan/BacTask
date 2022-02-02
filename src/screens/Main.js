@@ -38,7 +38,7 @@ const Main = ({
   }, []);
 
   useEffect(() => {
-    if(!nbPages || currentPage <= nbPages) {
+    if(!nbPages || currentPage < nbPages) {
       getDataFromLink(currentPage + 1);
     }
   }, [time]);
@@ -46,7 +46,7 @@ const Main = ({
   const onRefresh = () => {
     clearInterval(interval);
     setInterval(() => {
-      if(!nbPages || currentPage <= nbPages) {
+      if(!nbPages || currentPage < nbPages) {
         setTime(pre => pre + 1);
       } else {
         clearInterval(interval);
